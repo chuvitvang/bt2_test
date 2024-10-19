@@ -4,7 +4,7 @@
 import pandas as pd
 
 # Load dữ liệu, truy xuất dữ liệu cho chương trình
-df = pd.read_csv("đường dẫn file dữ liệu gốc")
+df = pd.read_csv("đường dẫn file dữ liệu gốc") #vd C:/Users/Download/tenfile.csv
 
 # thay đổi dữ liệu về float nếu k phải là float
 df['Gold'] = df['Gold'].astype(float)
