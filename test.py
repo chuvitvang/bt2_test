@@ -1,11 +1,11 @@
-#code trên tham khảo gemini và chatgpt,(chưa được tối ưu)
+#code trên tham khảo gemini và chatgpt (chưa được tối ưu)
 #cân nhắc khi sử dụng
-#thắc mắc ib zalo Minh đẹp trai 0981590917
+#thắc mắc ib a Minh đẹp trai
 import pandas as pd
 
+# Load dữ liệu, truy xuất dữ liệu cho chương trình
 df = pd.read_csv("đường dẫn file dữ liệu gốc")
 
-# Load dữ liệu, truy xuất dữ liệu cho chương trình (Đã thực hiện ở bước trên)
 # thay đổi dữ liệu về float nếu k phải là float
 df['Gold'] = df['Gold'].astype(float)
 df['Silver'] = df['Silver'].astype(float)
@@ -31,7 +31,7 @@ ranks = []
 for i, rank in enumerate(df_sorted['Rank']):
     count = df_sorted['Rank'].value_counts()[rank]  # Đếm số lần xuất hiện của rank
     if count > 1:
-        ranks.append(str(int(rank)) + "T")  # Thêm "T" nếu có đồng hạng
+        ranks.append(str(int(rank)) + "trung dai")  # Thêm "trung dai" nếu có đồng hạng
     else:
         ranks.append(str(int(rank)))
 
@@ -41,12 +41,9 @@ df_sorted['Rank'] = ranks
 top_3_list = []
 top_3_ranks = df_sorted['Rank'].head(3).unique().tolist() # Lấy danh sách các hạng trong top 3 (unique)
 
-
 for rank in top_3_ranks:
     countries_in_rank = df_sorted[df_sorted['Rank'] == rank]['Country'].tolist()
     top_3_list.append((rank, countries_in_rank)) # Thêm tuple (rank, [countries]) vào list
-
-# Tạo list danh sách thứ hạng 1st, 2nd, 3rd
 
 # Tạo file dữ liệu, save as vào máy tính
 df_sorted.to_csv("đường dẫn file dữ liệu xuất ra", index=False)
